@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<modification>
+    <name>Annytab Cookie Consent</name>
+    <version>1.0.2</version>
+    <author>A Name Not Yet Taken AB</author>
+    <link>https://www.annytab.com</link>
+    <code>annytab_cookie_consent</code>
+    <description>An cookie consent extension to comply with EU Cookie Law, CCPA, GDPR and other privacy laws.</description>
+
+    <!-- Insert styles, scripts and html -->
+    <file path="catalog/controller/common/content_bottom.php" error="log">
+        <operation>
+            <search trim="true"><![CDATA[return $this->load->view('common/content_bottom', $data);]]></search>
+            <add position="before"><![CDATA[
+            // Annytab Cookie Consent
+            $this->load->language('common/annytab_cookie_consent');
+            $this->document->addStyle('catalog/view/javascript/annytab/scripts/css/annytab_cookie_consent.min.css');
+            $this->document->addScript('catalog/view/javascript/annytab/scripts/js/annytab_cookie_consent.min.js', 'footer');
+            array_push($data['modules'], $this->load->view('common/annytab_cookie_consent', null));
+            ]]></add>
+        </operation>
+    </file>
+
+</modification>
