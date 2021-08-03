@@ -1,2 +1,2 @@
 # opencart-cookie-policy
-Opencart extension for cookie policy
+Opencart extension for cookie consent
